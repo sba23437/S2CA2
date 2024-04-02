@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Enter 1 to start hadoop processes"
+echo "Enter 2 to stop hadoop processes"
+echo "Enter 3 to exit"
+
+read opt
+
+if [[ $opt -eq 1 ]]; then
+  echo "Hadoop is now starting. Be patience!"
+  start-dfs.sh
+  start-yarn.sh
+  echo "All hdfs process are mentioned below"
+  jps
+fi
+
+if [[ $opt -eq 2 ]]; then
+  echo "Hadoop is now stopping. Be patience!"
+  stop-dfs.sh
+  stop-yarn.sh
+  jps
+fi
+
+if [[ $opt -eq 3 ]]; then
+  echo "Thank you!"
+fi
